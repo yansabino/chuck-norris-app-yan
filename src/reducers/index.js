@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import { postsReducer } from "./posts";
+import { jokesReducer } from "./jokes";
 
 export const rootReducer = combineReducers({
-  posts: postsReducer
+  jokes: jokesReducer
 });
