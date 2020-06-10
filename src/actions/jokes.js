@@ -10,14 +10,31 @@ export const setJokesCategories = categories => {
   };
 };
 
+export const setJokeCategory = category => {
+  return {
+    type: "SET_JOKES_CATEGORY",
+    payload: {
+      category
+    }
+  };
+};
+
 export const fetchJokesCategories = () => async (dispatch) => {
    try {
      const response = await axios.get('https://api.chucknorris.io/jokes/categories')
      dispatch(setJokesCategories(response.data))
-     console.log(response.data)
+     
    } catch (error) {
     window.alert("Erro de renderização");
    }
 }
 
-
+export const fetchJokeFromGivenCategorie = (category) => async (dispatch) => {
+  try {
+    const response = await axios.get(`https://api.chucknorris.io/jokes/random?category=${category}`)
+    dispatch(setJokeCategory(response.data))
+    console.log(response.data)
+  } catch (error) {
+    window.alert("Erro de renderização");
+  }
+}
