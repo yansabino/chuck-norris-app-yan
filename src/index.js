@@ -24,7 +24,7 @@ const jss = create({
 
 const theme = createMuiTheme({
   palette: {
-    type: "dark"
+    type: "light"
   }
 });
 

@@ -1,7 +1,11 @@
-const initialState = [];
+const initialState = {
+  categories: []
+};
 
-export const jokesReducer = (state = initialState, action) => {
+export const jokes = (state = initialState, action) => {
   switch (action.type) {
+    case "SET_JOKES_CATEGORIES":
+      return {...state, categories: action.payload.categories}
     default:
       return state;
   }

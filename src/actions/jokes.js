@@ -1,22 +1,23 @@
 import axios from "axios";
 
 
-export const setPosts = postsList => {
+export const setJokesCategories = categories => {
   return {
-    type: "SET_POSTS",
+    type: "SET_JOKES_CATEGORIES",
     payload: {
-      postsList: postsList
+      categories
     }
   };
 };
 
-export const likePost = id => {
-  return {
-    type: "LIKE_POST",
-    payload: {
-      id: id
-    }
-  };
-};
+export const fetchJokesCategories = () => async (dispatch) => {
+   try {
+     const response = await axios.get('https://api.chucknorris.io/jokes/categories')
+     dispatch(setJokesCategories(response.data))
+     console.log(response.data)
+   } catch (error) {
+    window.alert("Erro de renderização");
+   }
+}
 
 
