@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Container } from "../../style/app";
 import {
@@ -6,49 +6,39 @@ import {
   fetchJokeFromGivenCategory,
 } from "../../actions/jokes";
 
-class AppContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isRendering: false,
-    };
-  }
+const AppContainer = (props) => {
+  useEffect(() => {
+    props.fetchJokesCategories();
+  });
 
-  componentDidMount() {
-    this.props.fetchJokesCategories();
-  }
+  const getNewJoke = () => {
+    const currentCategory = props.category.categories[0];
 
-  getNewJoke = () => {
-    const currentCategory = this.props.category.categories[0];
-
-    this.props.fetchJokeFromGivenCategory(currentCategory);
+    props.fetchJokeFromGivenCategory(currentCategory);
   };
 
-  render() {
-    const categories = this.props.categories.map((category) => (
-      <button
-        onClick={() => {
-          this.props.fetchJokeFromGivenCategory(category);
-        }}
-      >
-        {category.toUpperCase()}
-      </button>
-    ));
+  const categories = props.categories.map((category) => (
+    <button
+      onClick={() => {
+        props.fetchJokeFromGivenCategory(category);
+      }}
+    >
+      {category.toUpperCase()}
+    </button>
+  ));
 
-    return (
-      <>
-        {categories}
-
-        <h1>{this.props.category.value}</h1>
-        <button onClick={this.getNewJoke}>Recarregar</button>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      {categories}
+      <h1>{props.jokeCategory.value}</h1>
+      <button onClick={getNewJoke}>Recarregar</button>
+    </>
+  );
+};
 
 const mapStateToProps = (state) => ({
   categories: state.jokes.categories,
-  category: state.jokes.category,
+  jokeCategory: state.jokes.jokeCategory,
 });
 
 const mapDispatchToProps = (dispatch) => ({
