@@ -12,8 +12,7 @@ const AppContainer = (props) => {
   });
 
   const getNewJoke = () => {
-    const currentCategory = props.category.categories[0];
-
+    const currentCategory = props.jokeCategory.categories[0];
     props.fetchJokeFromGivenCategory(currentCategory);
   };
 

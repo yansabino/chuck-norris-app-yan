@@ -9,7 +9,7 @@ import {
 } from "@material-ui/core/styles";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
-import { createMuiTheme } from "@material-ui/core/styles";
+import theme from "./style/theme"
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppContainer from "./container/App/AppContainer";
 import { rootReducer } from "./reducers";
@@ -22,11 +22,7 @@ const jss = create({
   insertionPoint: document.getElementById("jss-insertion-point")
 });
 
-const theme = createMuiTheme({
-  palette: {
-    type: "light"
-  }
-});
+
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
