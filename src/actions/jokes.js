@@ -1,5 +1,7 @@
 import axios from "axios";
 
+const baseUrl = "https://api.chucknorris.io/jokes"
+
 export const setJokesCategories = (categories) => {
   return {
     type: "SET_JOKES_CATEGORIES",
@@ -21,7 +23,7 @@ export const setJokeFromGivenCategory = (jokeCategory) => {
 export const fetchJokesCategories = () => async (dispatch) => {
   try {
     const response = await axios.get(
-      "https://api.chucknorris.io/jokes/categories"
+      `${baseUrl}/categories`
     );
     dispatch(setJokesCategories(response.data));
   } catch (error) {
@@ -32,7 +34,7 @@ export const fetchJokesCategories = () => async (dispatch) => {
 export const fetchJokeFromGivenCategory = (jokeCategory) => async (dispatch) => {
   try {
     const response = await axios.get(
-      `https://api.chucknorris.io/jokes/random?category=${jokeCategory}`
+      `${baseUrl}/random?category=${jokeCategory}`
     );
     dispatch(setJokeFromGivenCategory(response.data));
   } catch (error) {
