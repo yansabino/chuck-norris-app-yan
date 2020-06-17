@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.js": "/chuck-norris-app-yan/static/js/main.9bf64f80.chunk.js",
-    "main.js.map": "/chuck-norris-app-yan/static/js/main.9bf64f80.chunk.js.map",
-    "runtime-main.js": "/chuck-norris-app-yan/static/js/runtime-main.2cc307c5.js",
-    "runtime-main.js.map": "/chuck-norris-app-yan/static/js/runtime-main.2cc307c5.js.map",
-    "static/js/2.228eb680.chunk.js": "/chuck-norris-app-yan/static/js/2.228eb680.chunk.js",
-    "static/js/2.228eb680.chunk.js.map": "/chuck-norris-app-yan/static/js/2.228eb680.chunk.js.map",
-    "index.html": "/chuck-norris-app-yan/index.html",
-    "precache-manifest.0916bc8709216418d42623efe1e275f7.js": "/chuck-norris-app-yan/precache-manifest.0916bc8709216418d42623efe1e275f7.js",
-    "service-worker.js": "/chuck-norris-app-yan/service-worker.js",
-    "static/js/2.228eb680.chunk.js.LICENSE.txt": "/chuck-norris-app-yan/static/js/2.228eb680.chunk.js.LICENSE.txt",
-    "static/media/chuck-animation.png": "/chuck-norris-app-yan/static/media/chuck-animation.d5379756.png"
+    "main.js": "/chuck-norris-app-ya/static/js/main.9bf64f80.chunk.js",
+    "main.js.map": "/chuck-norris-app-ya/static/js/main.9bf64f80.chunk.js.map",
+    "runtime-main.js": "/chuck-norris-app-ya/static/js/runtime-main.9dd3dce2.js",
+    "runtime-main.js.map": "/chuck-norris-app-ya/static/js/runtime-main.9dd3dce2.js.map",
+    "static/js/2.45243022.chunk.js": "/chuck-norris-app-ya/static/js/2.45243022.chunk.js",
+    "static/js/2.45243022.chunk.js.map": "/chuck-norris-app-ya/static/js/2.45243022.chunk.js.map",
+    "index.html": "/chuck-norris-app-ya/index.html",
+    "precache-manifest.f1b0f3d89930bd33c4d1b19975ada635.js": "/chuck-norris-app-ya/precache-manifest.f1b0f3d89930bd33c4d1b19975ada635.js",
+    "service-worker.js": "/chuck-norris-app-ya/service-worker.js",
+    "static/js/2.45243022.chunk.js.LICENSE.txt": "/chuck-norris-app-ya/static/js/2.45243022.chunk.js.LICENSE.txt",
+    "static/media/chuck-animation.png": "/chuck-norris-app-ya/static/media/chuck-animation.d5379756.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.2cc307c5.js",
-    "static/js/2.228eb680.chunk.js",
+    "static/js/runtime-main.9dd3dce2.js",
+    "static/js/2.45243022.chunk.js",
     "static/js/main.9bf64f80.chunk.js"
   ]
 }
