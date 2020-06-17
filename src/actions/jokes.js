@@ -23,7 +23,7 @@ export const setJokeFromGivenCategory = (jokeCategory) => {
 export const fetchJokesCategories = () => async (dispatch) => {
   try {
     const response = await axios.get(
-      `${baseUrl}/categories`
+     `${baseUrl}/categories`
     );
     dispatch(setJokesCategories(response.data));
   } catch (error) {

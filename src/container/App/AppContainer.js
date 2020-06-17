@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { Container, StyledButton } from "../../style/app";
+import { Container, StyledButton, StyledTitle } from "../../style/app";
 import {
   fetchJokesCategories,
   fetchJokeFromGivenCategory,
@@ -8,10 +8,13 @@ import {
 import CategoryList from "../../components/CategoryList";
 import { CategoriesContainer } from "../../style/categories";
 import { StyledImage } from "../../style/images";
-import { JokeContainer } from "../../style/jokes";
+import { JokeContainer, StyledJoke } from "../../style/jokes";
 import Chuck from "../../imgs/chuck-animation.png";
+import Loader from "../../components/Loader";
 
 const AppContainer = (props) => {
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     props.fetchJokesCategories();
   });
@@ -21,35 +24,49 @@ const AppContainer = (props) => {
     if (!allCategories) {
       window.alert("Escolha uma Catergoria antes de Recarregar uma piada");
     } else {
+      setLoading(true);
+      console.log(loading);
       let currentCategory = props.jokeCategory.categories[0];
       props.fetchJokeFromGivenCategory(currentCategory);
+      setLoading(false);
     }
   };
 
   const categories = props.categories.map((category) => (
     <CategoryList
-      onClickCategory={() => {
-        props.fetchJokeFromGivenCategory(category);
-      }}
+      onClickCategory={handleCategoryClick(props, category)}
       categoriesRendered={category.toUpperCase()}
     />
   ));
 
-  let currentCategory = props.jokeCategory.categories;
+  let chosenCategory = props.jokeCategory.categories;
 
+  const jokeRendered = chosenCategory ? (
+    <>
+      <h3>Ultimate Joke:</h3>
+      <StyledJoke>{props.jokeCategory.value}</StyledJoke>
+    </>
+  ) : (
+    loading && <Loader />
+  );
+  
   return (
     <Container>
+      <StyledTitle> Welcome to Norris's Jokes</StyledTitle>
       <StyledImage src={Chuck} alt="chuck-animation" />
-      <h3 style={{ textAlign: "center" }}>Categories:</h3>
+      <h3 style={{ textAlign: "center" }}>Choose a Category:</h3>
       <CategoriesContainer>{categories}</CategoriesContainer>
-      <JokeContainer>
-        {currentCategory &&  <h2 style={{ border: "2px solid black", padding: "10px" }}>{props.jokeCategory.value}</h2>}
-      </JokeContainer>
-
+      <JokeContainer>{jokeRendered}</JokeContainer>
       <StyledButton onClick={getNewJoke}>Recarregar</StyledButton>
     </Container>
   );
 };
+
+const handleCategoryClick = (props, category) => {
+  return () => {
+    props.fetchJokeFromGivenCategory(category);
+  };
+}
 
 const mapStateToProps = (state) => ({
   categories: state.jokes.categories,
@@ -63,3 +80,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);
+
+
