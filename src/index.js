@@ -5,11 +5,11 @@ import { create } from "jss";
 import {
   MuiThemeProvider,
   createGenerateClassName,
-  jssPreset
+  jssPreset,
 } from "@material-ui/core/styles";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
-import theme from "./style/theme"
+import theme from "./style/theme";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppContainer from "./container/App/AppContainer";
 import { rootReducer } from "./reducers";
@@ -19,10 +19,8 @@ const generateClassName = createGenerateClassName();
 const jss = create({
   ...jssPreset(),
   // We define a custom insertion point that JSS will look for injecting the styles in the DOM.
-  insertionPoint: document.getElementById("jss-insertion-point")
+  insertionPoint: document.getElementById("jss-insertion-point"),
 });
-
-
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 

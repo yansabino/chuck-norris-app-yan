@@ -43,7 +43,7 @@ export const StyledTitle = styled.h1`
   margin-top: 50px;
   text-shadow: 0.1em 0.1em 0.2em #744439;
   -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: #744439; 
+  -webkit-text-stroke-color: #744439;
 
   @media ${device.mobileS} {
     font-size: 13px;
@@ -78,7 +78,7 @@ export const StyledButton = withStyles({
     margin: "0 20px 10px 5px",
     padding: "10px",
     fontFamily: theme.typography.fontFamily[0],
-    
+
     "&:hover": {
       border: "1px solid #F15A24",
       background: "#FFFAE5",

@@ -25,14 +25,13 @@ const AppContainer = (props) => {
       window.alert("Escolha uma Catergoria antes de Recarregar uma piada");
     } else {
       setLoading(true);
-      console.log(loading);
       let currentCategory = props.jokeCategory.categories[0];
       props.fetchJokeFromGivenCategory(currentCategory);
       setLoading(false);
     }
   };
 
-  const categories = props.categories.map((category) => (
+  const categories = props.categoriesList.map((category) => (
     <CategoryList
       onClickCategory={handleCategoryClick(props, category)}
       categoriesRendered={category.toUpperCase()}
@@ -49,7 +48,7 @@ const AppContainer = (props) => {
   ) : (
     loading && <Loader />
   );
-  
+
   return (
     <Container>
       <StyledTitle> Welcome to Norris's Jokes</StyledTitle>
@@ -57,7 +56,7 @@ const AppContainer = (props) => {
       <h3 style={{ textAlign: "center" }}>Choose a Category:</h3>
       <CategoriesContainer>{categories}</CategoriesContainer>
       <JokeContainer>{jokeRendered}</JokeContainer>
-      <StyledButton onClick={getNewJoke}>Recarregar</StyledButton>
+      <StyledButton onClick={getNewJoke}>Reload a Joke</StyledButton>
     </Container>
   );
 };
@@ -66,10 +65,10 @@ const handleCategoryClick = (props, category) => {
   return () => {
     props.fetchJokeFromGivenCategory(category);
   };
-}
+};
 
 const mapStateToProps = (state) => ({
-  categories: state.jokes.categories,
+  categoriesList: state.jokes.categoriesList,
   jokeCategory: state.jokes.jokeCategory,
 });
 
@@ -80,5 +79,3 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);
-
-

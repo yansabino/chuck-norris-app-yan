@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { device } from "./Responsive/devices"
+import { device } from "./Responsive/devices";
 
 export const JokeContainer = styled.div`
   margin: 0 auto;
@@ -36,6 +36,7 @@ export const StyledJoke = styled.p`
     width: 1400px;
   }
   @media ${device.desktop} {
-    font-size: 1800px;
+    font-size: 18px;
+    width: 1600px;
   }
-`
+`;

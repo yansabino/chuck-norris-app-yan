@@ -2,11 +2,11 @@ import axios from "axios";
 
 const baseUrl = "https://api.chucknorris.io/jokes"
 
-export const setJokesCategories = (categories) => {
+export const setJokesCategories = (categoriesList) => {
   return {
-    type: "SET_JOKES_CATEGORIES",
+    type: "SET_JOKES_CATEGORIES_LIST",
     payload: {
-      categories,
+      categoriesList,
     },
   };
 };
@@ -15,7 +15,7 @@ export const setJokeFromGivenCategory = (jokeCategory) => {
   return {
     type: "SET_JOKE_FROM_CATEGORY",
     payload: {
-      jokeCategory,
+      jokeCategory, //Olhar nomes melhores parar as variaveis
     },
   };
 };
